@@ -22,13 +22,13 @@
 					<font color="red"></font>
                 </div>
                 <div>
-                    <label for="proGrade">学位要求：</label>
+                    <label for="proGrade">学位：</label>
                     <input type="text" name="proGrade" id="proGrade" value="${bill.proGrade }">
 					<font color="red"></font>
                 </div>
                 <div>
-                    <label for="productCount">商品数量：</label>
-                    <input type="text" name="productCount" id="productCount" value="${bill.productCount }">
+                    <label for="workExperience">工作经验：</label>
+                    <input type="text" name="workExperience" id="workExperience" value="${bill.workExperience }">
 					<font color="red"></font>
                 </div>
                 <div>

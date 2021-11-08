@@ -3,14 +3,12 @@ package com.mario.dao.bill;
 import com.mario.dao.BaseDao;
 import com.mario.pojo.Bill;
 import com.mysql.cj.util.StringUtils;
-import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 public class BillDaoImpl  implements BillDao{
 
@@ -24,10 +22,10 @@ public class BillDaoImpl  implements BillDao{
 //                    "values(?,?,?,?,?,?,?,?)";
 
             String sql = "insert into smbms_bill (billCode,productName,productDesc," +
-                    "proGrade,productCount,totalPrice,isPayment,providerId,createdBy,creationDate) " +
+                    "proGrade,workExperience,totalPrice,isPayment,providerId,createdBy,creationDate) " +
                     "values(?,?,?,?,?,?,?,?,?,?)";
             Object[] params = {bill.getBillCode(),bill.getProductName(),bill.getProductDesc(),
-                  bill.getProGrade(),bill.getProductCount(),bill.getTotalPrice(),bill.getIsPayment(),
+                  bill.getProGrade(),bill.getWorkExperience(),bill.getTotalPrice(),bill.getIsPayment(),
                     bill.getProviderId(),bill.getCreatedBy(),bill.getCreationDate()};
             updateNum = BaseDao.execute(connection, sql, params,pstm);
             BaseDao.closeResource(null, pstm, null);
@@ -66,7 +64,7 @@ public class BillDaoImpl  implements BillDao{
                 _bill.setProductName(rs.getString("productName"));
                 _bill.setProductDesc(rs.getString("productDesc"));
                 _bill.setProGrade(rs.getString("proGrade"));
-                _bill.setProductCount(rs.getString("productCount"));
+                _bill.setWorkExperience(rs.getString("workExperience"));
                 _bill.setTotalPrice(rs.getString("totalPrice"));
                 _bill.setIsPayment(rs.getInt("isPayment"));
                 _bill.setProviderId(rs.getInt("providerId"));
@@ -112,7 +110,7 @@ public class BillDaoImpl  implements BillDao{
                 bill.setProductName(rs.getString("productName"));
                 bill.setProductDesc(rs.getString("productDesc"));
                 bill.setProGrade(rs.getString("proGrade"));
-                bill.setProductCount(rs.getString("productCount"));
+                bill.setWorkExperience(rs.getString("workExperience"));
                 bill.setTotalPrice(rs.getString("totalPrice"));
                 bill.setIsPayment(rs.getInt("isPayment"));
                 bill.setProviderId(rs.getInt("providerId"));
@@ -135,10 +133,10 @@ public class BillDaoImpl  implements BillDao{
 //                    "isPayment=?,providerId=?,modifyBy=?,modifyDate=? where id = ? ";
 
             String sql = "update smbms_bill set productName=?," +
-                    "productDesc=?,proGrade=?,productCount=?,totalPrice=?," +
+                    "productDesc=?,proGrade=?,workExperience=?,totalPrice=?," +
                     "isPayment=?,providerId=?,modifyBy=?,modifyDate=? where id = ? ";
             Object[] params = {bill.getProductName(),bill.getProductDesc(),
-                    bill.getProGrade(),bill.getProductCount(),bill.getTotalPrice(),bill.getIsPayment(),
+                    bill.getProGrade(),bill.getWorkExperience(),bill.getTotalPrice(),bill.getIsPayment(),
                     bill.getProviderId(),bill.getModifyBy(),bill.getModifyDate(),bill.getId()};
             modifyNum=BaseDao.execute(connection,sql,params,pstm);
             BaseDao.closeResource(null,pstm,null);

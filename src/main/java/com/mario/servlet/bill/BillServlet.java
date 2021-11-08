@@ -104,7 +104,7 @@ public class BillServlet extends HttpServlet {
         String productName = request.getParameter("productName");
         String productDesc = request.getParameter("productDesc");
         String proGrade = request.getParameter("proGrade");
-        String productCount = request.getParameter("productCount");
+        String workExperience = request.getParameter("workExperience");
         String totalPrice = request.getParameter("totalPrice");
         String providerId = request.getParameter("providerId");
         String isPayment = request.getParameter("isPayment");
@@ -114,7 +114,7 @@ public class BillServlet extends HttpServlet {
         bill.setProductName(productName);
         bill.setProductDesc(productDesc);
         bill.setProGrade(proGrade);
-        bill.setProductCount(productCount);
+        bill.setWorkExperience(workExperience);
         bill.setIsPayment(Integer.parseInt(isPayment));
         bill.setTotalPrice(totalPrice);
         bill.setProviderId(Integer.parseInt(providerId));
@@ -159,7 +159,7 @@ public class BillServlet extends HttpServlet {
         String productDesc = request.getParameter("productDesc");
         String proGrade = request.getParameter("proGrade");
 
-        String productCount = request.getParameter("productCount");
+        String workExperience = request.getParameter("workExperience");
         String totalPrice = request.getParameter("totalPrice");
         String providerId = request.getParameter("providerId");
         String isPayment = request.getParameter("isPayment");
@@ -169,7 +169,7 @@ public class BillServlet extends HttpServlet {
         bill.setProductName(productName);
         bill.setProductDesc(productDesc);
         bill.setProGrade(proGrade);
-        bill.setProductCount(productCount);
+        bill.setWorkExperience(workExperience);
         bill.setIsPayment(Integer.parseInt(isPayment));
         bill.setTotalPrice(totalPrice);
         bill.setProviderId(Integer.parseInt(providerId));

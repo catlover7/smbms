@@ -1,6 +1,5 @@
 package com.mario.pojo;
 
-import java.math.BigDecimal;
 import java.util.Date;
 //申请职位 request
 public class Bill {
@@ -9,7 +8,7 @@ public class Bill {
     private String productName; //职位名称
     private String productDesc; //职位描述
     private String proGrade; //学位
-    private String productCount; //工作年限要求
+    private String workExperience; //工作经验
     private String totalPrice; //工资
     private Integer isPayment; //是否录用
     private Integer providerId; //公司ID
@@ -60,12 +59,12 @@ public class Bill {
         this.proGrade = proGrade;
     }
 
-    public String getProductCount() {
-        return productCount;
+    public String getWorkExperience() {
+        return workExperience;
     }
 
-    public void setProductCount(String productCount) {
-        this.productCount = productCount;
+    public void setWorkExperience(String workExperience) {
+        this.workExperience = workExperience;
     }
 
     public String getTotalPrice() {

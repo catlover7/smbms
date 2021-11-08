@@ -1,7 +1,7 @@
 var billCode = null;
 var productName = null;
 var proGrade = null;
-var productCount = null;
+var workExperience = null;
 var totalPrice = null;
 var providerId = null;
 var saveBtn = null;
@@ -23,7 +23,7 @@ $(function(){
 	billCode = $("#billCode");
 	productName = $("#productName");
 	proGrade = $("#proGrade");
-	productCount = $("#productCount");
+	workExperience = $("#workExperience");
 	totalPrice = $("#totalPrice");
 	providerId = $("#providerId");
 	addBtn = $("#save");
@@ -33,7 +33,7 @@ $(function(){
 	billCode.next().html("*");
 	productName.next().html("*");
 	proGrade.next().html("*");
-	productCount.next().html("*");
+	workExperience.next().html("*");
 	totalPrice.next().html("*");
 	providerId.next().html("*");
 	
@@ -103,8 +103,8 @@ $(function(){
 		
 	});
 	
-	productCount.on("focus",function(){
-		validateTip(productCount.next(),{"color":"#666666"},"* 请输入大于0的正自然数，小数点后保留2位",false);
+	workExperience.on("focus",function(){
+		validateTip(workExperience.next(),{"color":"#666666"},"* 请输入大于0的正自然数，小数点后保留2位",false);
 	}).on("keyup",function(){
 		this.value = priceReg(this.value);
 	}).on("blur",function(){
