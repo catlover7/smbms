@@ -54,7 +54,7 @@ $(function(){
 			}
 		},
 		error:function(data){//当访问时候，404，500 等非200的错误状态码
-			validateTip(providerId.next(),{"color":"red"},imgNo+" 获取供应商列表error",false);
+			validateTip(providerId.next(),{"color":"red"},imgNo+" 获取公司列表error",false);
 		}
 	});
 	/*
@@ -70,44 +70,44 @@ $(function(){
 		}
 	}).on("focus",function(){
 		//显示友情提示
-		validateTip(billCode.next(),{"color":"#666666"},"* 请输入订单编码",false);
+		validateTip(billCode.next(),{"color":"#666666"},"* 请输入表单编码",false);
 	}).focus();
 	
 	productName.on("focus",function(){
-		validateTip(productName.next(),{"color":"#666666"},"* 请输入商品名称",false);
+		validateTip(productName.next(),{"color":"#666666"},"* 请输入职位名称",false);
 	}).on("blur",function(){
 		if(productName.val() != null && productName.val() != ""){
 			validateTip(productName.next(),{"color":"green"},imgYes,true);
 		}else{
-			validateTip(productName.next(),{"color":"red"},imgNo+" 商品名称不能为空，请重新输入",false);
+			validateTip(productName.next(),{"color":"red"},imgNo+" 职位名称不能为空，请重新输入",false);
 		}
 		
 	});
 
 	proGrade.on("focus",function(){
-		validateTip(proGrade.next(),{"color":"#666666"},"* 请输入商品单位",false);
+		validateTip(proGrade.next(),{"color":"#666666"},"* 请输入学位",false);
 	}).on("blur",function(){
 		if(proGrade.val() != null && proGrade.val() != ""){
 			validateTip(proGrade.next(),{"color":"green"},imgYes,true);
 		}else{
-			validateTip(proGrade.next(),{"color":"red"},imgNo+" 单位不能为空，请重新输入",false);
+			validateTip(proGrade.next(),{"color":"red"},imgNo+" 学位不能为空，请重新输入",false);
 		}
 
 	});
 	
 	providerId.on("focus",function(){
-		validateTip(providerId.next(),{"color":"#666666"},"* 请选择供应商",false);
+		validateTip(providerId.next(),{"color":"#666666"},"* 请选择公司",false);
 	}).on("blur",function(){
 		if(providerId.val() != null && providerId.val() != "" && providerId.val() != 0){
 			validateTip(providerId.next(),{"color":"green"},imgYes,true);
 		}else{
-			validateTip(providerId.next(),{"color":"red"},imgNo+" 供应商不能为空，请选择",false);
+			validateTip(providerId.next(),{"color":"red"},imgNo+" 公司不能为空，请选择",false);
 		}
 		
 	});
 	
 	workExperience.on("focus",function(){
-		validateTip(workExperience.next(),{"color":"#666666"},"* 请输入大于0的正自然数，小数点后保留2位",false);
+		validateTip(workExperience.next(),{"color":"#666666"},"* 请输入大于0的正自然数",false);
 	}).on("keyup",function(){
 		this.value = priceReg(this.value);
 	}).on("blur",function(){
@@ -115,7 +115,7 @@ $(function(){
 	});
 	
 	totalPrice.on("focus",function(){
-		validateTip(totalPrice.next(),{"color":"#666666"},"* 请输入大于0的正自然数，小数点后保留2位",false);
+		validateTip(totalPrice.next(),{"color":"#666666"},"* 请输入大于0的正自然数",false);
 	}).on("keyup",function(){
 		this.value = priceReg(this.value);
 	}).on("blur",function(){

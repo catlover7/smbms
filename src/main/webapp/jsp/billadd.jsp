@@ -5,14 +5,14 @@
 <div class="right">
      <div class="location">
          <strong>你现在所在的位置是:</strong>
-         <span>订单管理页面 >> 订单添加页面</span>
+         <span>表单申请管理页面 >> 表单申请添加页面</span>
      </div>
      <div class="providerAdd">
          <form id="billForm" name="billForm" method="post" action="${pageContext.request.contextPath }/jsp/bill.do">
              <!--div的class 为error是验证错误，ok是验证成功-->
              <input type="hidden" name="method" value="add">
              <div class="">
-                 <label for="billCode">订单编码：</label>
+                 <label for="billCode">表单编码：</label>
                  <input type="text" name="billCode" class="text" id="billCode" value=""> 
 				 <!-- 放置提示信息 -->
 				 <font color="red"></font>

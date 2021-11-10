@@ -46,7 +46,7 @@ public interface BillDao {
     public Bill getBillById(Connection connection, String id)throws Exception;
 
     /**
-     * 修改订单信息
+     * 修改表单信息
      * @param connection
      * @param bill
      * @return
@@ -55,7 +55,7 @@ public interface BillDao {
     public int modify(Connection connection, Bill bill)throws Exception;
 
     /**
-     * 根据公司ID查询订单数量
+     * 根据公司ID查询表单数量
      * @param connection
      * @param providerId
      * @return

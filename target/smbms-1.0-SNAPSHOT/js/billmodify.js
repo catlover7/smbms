@@ -61,7 +61,7 @@ $(function(){
 			}
 		},
 		error:function(data){//当访问时候，404，500 等非200的错误状态码
-			validateTip(providerId.next(),{"color":"red"},imgNo+" 获取供应商列表error",false);
+			validateTip(providerId.next(),{"color":"red"},imgNo+" 获取公司列表error",false);
 		}
 	});
 	/*
@@ -71,34 +71,34 @@ $(function(){
 	 */
 	
 	productName.on("focus",function(){
-		validateTip(productName.next(),{"color":"#666666"},"* 请输入商品名称",false);
+		validateTip(productName.next(),{"color":"#666666"},"* 请输入职位名称",false);
 	}).on("blur",function(){
 		if(productName.val() != null && productName.val() != ""){
 			validateTip(productName.next(),{"color":"green"},imgYes,true);
 		}else{
-			validateTip(productName.next(),{"color":"red"},imgNo+" 商品名称不能为空，请重新输入",false);
+			validateTip(productName.next(),{"color":"red"},imgNo+" 职位名称不能为空，请重新输入",false);
 		}
 		
 	});
 	
 	proGrade.on("focus",function(){
-		validateTip(proGrade.next(),{"color":"#666666"},"* 请输入商品单位",false);
+		validateTip(proGrade.next(),{"color":"#666666"},"* 请输入学位",false);
 	}).on("blur",function(){
 		if(proGrade.val() != null && proGrade.val() != ""){
 			validateTip(proGrade.next(),{"color":"green"},imgYes,true);
 		}else{
-			validateTip(proGrade.next(),{"color":"red"},imgNo+" 单位不能为空，请重新输入",false);
+			validateTip(proGrade.next(),{"color":"red"},imgNo+" 学位不能为空，请重新输入",false);
 		}
 
 	});
 	
 	providerId.on("focus",function(){
-		validateTip(providerId.next(),{"color":"#666666"},"* 请选择供应商",false);
+		validateTip(providerId.next(),{"color":"#666666"},"* 请选择公司",false);
 	}).on("blur",function(){
 		if(providerId.val() != null && providerId.val() != "" && providerId.val() != 0){
 			validateTip(providerId.next(),{"color":"green"},imgYes,true);
 		}else{
-			validateTip(providerId.next(),{"color":"red"},imgNo+" 供应商不能为空，请选择",false);
+			validateTip(providerId.next(),{"color":"red"},imgNo+" 公司不能为空，请选择",false);
 		}
 		
 	});

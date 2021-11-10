@@ -4,10 +4,10 @@
 <div class="right">
      <div class="location">
          <strong>你现在所在的位置是:</strong>
-         <span>订单管理页面 >> 信息查看</span>
+         <span>表单申请管理页面 >> 信息查看</span>
      </div>
      <div class="providerView">
-         <p><strong>订单编号：</strong><span>${bill.billCode }</span></p>
+         <p><strong>表单编号：</strong><span>${bill.billCode }</span></p>
          <p><strong>职位名称：</strong><span>${bill.productName }</span></p>
          <p><strong>申请人：</strong><span>${bill.userName}</span></p>
          <p><strong>学位：</strong><span>${bill.proGrade }</span></p>

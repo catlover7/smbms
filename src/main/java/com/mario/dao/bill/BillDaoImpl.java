@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BillDaoImpl  implements BillDao{
 
-    //根据用户输入的值，新增订单表
+    //根据用户输入的值，新增表单
     public int add(Connection connection, Bill bill) throws Exception {
         int updateNum=0;
         PreparedStatement pstm=null;
@@ -34,7 +34,7 @@ public class BillDaoImpl  implements BillDao{
         return updateNum;
     }
 
-    //根据用户输入的值条件，查询订单表
+    //根据用户输入的值条件，查询表单表
     public List<Bill> getBillList(Connection connection, Bill bill) throws Exception {
         List<Bill> billList = new ArrayList<Bill>();
         PreparedStatement pstm=null;
@@ -43,18 +43,18 @@ public class BillDaoImpl  implements BillDao{
             StringBuffer sql=new StringBuffer();
             sql.append("SELECT b.*,p.proName AS providerName,s.userName AS userName FROM smbms_bill b, smbms_provider p,smbms_user s WHERE b.providerId = p.id and s.id=b.createdBy");
             List<Object> list = new ArrayList<Object>();//用来暂存用户的输入
-            if(!StringUtils.isNullOrEmpty(bill.getProductName())){//判断用户是否输入商品名称
+            if(!StringUtils.isNullOrEmpty(bill.getProductName())){//判断用户是否输入职位名称
                 sql.append(" AND b.`productName` LIKE ?");
                 list.add("%"+bill.getProductName()+"%");
             }
-            if(!StringUtils.isNullOrEmpty(bill.getUserName())){//判断用户是否输入商品名称
+            if(!StringUtils.isNullOrEmpty(bill.getUserName())){//判断用户是否输入申请人名
                 sql.append(" AND s.`userName` LIKE ?");
                 list.add("%"+bill.getUserName()+"%");
             }
-            if(bill.getProviderId()>0){//判断是否选择了供应商
+            if(bill.getProviderId()>0){//判断是否选择了公司
                 sql.append(" AND p.`providerId`=?");
                 list.add(bill.getProviderId());
-            }if(bill.getIsPayment()>0){//判断是否选择了是否付款
+            }if(bill.getIsPayment()>0){//判断是否选择了是否录用
                 sql.append(" AND b.`isPayment`=?");
                 list.add(bill.getIsPayment());
             }
@@ -84,7 +84,7 @@ public class BillDaoImpl  implements BillDao{
         return billList;
     }
 
-    //根据订单id删除该订单
+    //根据表单id删除该表单
     public int deleteBillById(Connection connection, String delId) throws Exception {
         int delNum=0;
         PreparedStatement pstm=null;
@@ -97,7 +97,7 @@ public class BillDaoImpl  implements BillDao{
         return delNum;
     }
 
-    //通过订单id得到该订单的所有信息（正确）
+    //通过订单id得到该表单的所有信息（正确）
     public Bill getBillById(Connection connection, String id) throws Exception {
         // TODO Auto-generated method stub
         Bill bill = null;
@@ -128,7 +128,7 @@ public class BillDaoImpl  implements BillDao{
         return bill;
     }
 
-    //根据用户传递输入的值修改订单表
+    //根据用户传递输入的值修改录用表单
     public int modify(Connection connection, Bill bill) throws Exception {
         int modifyNum=0;
         PreparedStatement pstm=null;
@@ -149,7 +149,7 @@ public class BillDaoImpl  implements BillDao{
         return modifyNum;
     }
 
-    //通过供应商id得到该供应商总订单数(正确）
+    //通过公司id得到该公司总录用情况
     public int getBillCountByProviderId(Connection connection, String providerId) throws Exception {
         int billcount=0;
         PreparedStatement pstm=null;

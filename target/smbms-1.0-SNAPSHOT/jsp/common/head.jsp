@@ -30,7 +30,7 @@
          <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
          <nav>
              <ul class="list">
-                 <li ><a href="${pageContext.request.contextPath }/jsp/bill.do?method=query">订单管理</a></li>
+                 <li ><a href="${pageContext.request.contextPath }/jsp/bill.do?method=query">表单申请管理</a></li>
               <li><a href="${pageContext.request.contextPath }/jsp/provider.do?method=query">企业管理</a></li>
               <li><a href="${pageContext.request.contextPath }/jsp/user.do?method=query">用户管理</a></li>
               <li><a href="${pageContext.request.contextPath }/jsp/pwdmodify.jsp">密码修改</a></li>

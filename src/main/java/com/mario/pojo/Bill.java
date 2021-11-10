@@ -4,7 +4,7 @@ import java.util.Date;
 //申请职位 request
 public class Bill {
     private Integer id;   //id
-    private String billCode; //订单编码
+    private String billCode; //表单编码
     private String productName; //职位名称
     private String productDesc; //职位描述
     private String proGrade; //学位

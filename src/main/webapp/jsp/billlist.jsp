@@ -5,7 +5,7 @@
 <div class="right">
        <div class="location">
            <strong>你现在所在的位置是:</strong>
-           <span>订单管理页面</span>
+           <span>表单申请管理页面</span>
        </div>
        <div class="search">
        <form method="get" action="${pageContext.request.contextPath }/jsp/bill.do">
@@ -13,17 +13,17 @@
 			<span>职位名称：</span>
 			<input name="queryProductName" type="text" value="${queryProductName }">
 			 
-			<span>公司：</span>
-			<select name="queryProviderId">
-				<c:if test="${providerList != null }">
-				   <option value="0">--请选择--</option>
-				   <c:forEach var="provider" items="${providerList}">
-				   		<option <c:if test="${provider.id == queryProviderId }">selected="selected"</c:if>
-				   		value="${provider.id}">${provider.proName}
-						</option>
-				   </c:forEach>
-				</c:if>
-       		</select>
+<%--			<span>公司：</span>--%>
+<%--			<select name="queryProviderId">--%>
+<%--				<c:if test="${providerList != null }">--%>
+<%--				   <option value="0">--请选择--</option>--%>
+<%--				   <c:forEach var="provider" items="${providerList}">--%>
+<%--				   		<option <c:if test="${provider.id == queryProviderId }">selected="selected"</c:if>--%>
+<%--				   		value="${provider.id}">${provider.proName}--%>
+<%--						</option>--%>
+<%--				   </c:forEach>--%>
+<%--				</c:if>--%>
+<%--       		</select>--%>
 
 			<span>是否录用：</span>
 			<select name="queryIsPayment">
@@ -39,7 +39,7 @@
        <!--账单表格 样式和供应商公用-->
       <table class="providerTable" cellpadding="0" cellspacing="0">
           <tr class="firstTr">
-              <th width="10%">订单编码</th>
+              <th width="10%">表单编码</th>
               <th width="20%">职位名称</th>
               <th width="10%">公司</th>
 			  <th width="10">申请人</th>
@@ -93,7 +93,7 @@
     <div class="removerChid">
         <h2>提示</h2>
         <div class="removeMain">
-            <p>你确定要删除该订单吗？</p>
+            <p>你确定要删除该表单吗？</p>
             <a href="#" id="yes">确定</a>
             <a href="#" id="no">取消</a>
         </div>
