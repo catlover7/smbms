@@ -24,7 +24,7 @@
 				   </c:forEach>
 				</c:if>
        		</select>
-			 
+
 			<span>是否录用：</span>
 			<select name="queryIsPayment">
 				<option value="0">--请选择--</option>
@@ -42,10 +42,11 @@
               <th width="10%">订单编码</th>
               <th width="20%">职位名称</th>
               <th width="10%">公司</th>
+			  <th width="10">姓名</th>
               <th width="10%">工资</th>
               <th width="10%">是否录用</th>
               <th width="10%">创建时间</th>
-              <th width="30%">操作</th>
+              <th width="20%">操作</th>
           </tr>
           <c:forEach var="bill" items="${billList }" varStatus="status">
 				<tr>
@@ -57,6 +58,9 @@
 					</td>
 					<td>
 					<span>${bill.providerName}</span>
+					</td>
+					<td>
+						<span>${bill.userName}</span>
 					</td>
 					<td>
 					<span>${bill.totalPrice}</span>

@@ -41,11 +41,15 @@ public class BillDaoImpl  implements BillDao{
         ResultSet rs=null;
         if(connection!=null){
             StringBuffer sql=new StringBuffer();
-            sql.append("SELECT b.*,p.proName AS providerName FROM smbms_bill b, smbms_provider p WHERE b.providerId = p.id");
+            sql.append("SELECT b.*,p.proName AS providerName,s.userName AS userName FROM smbms_bill b, smbms_provider p,smbms_user s WHERE b.providerId = p.id");
             List<Object> list = new ArrayList<Object>();//用来暂存用户的输入
             if(!StringUtils.isNullOrEmpty(bill.getProductName())){//判断用户是否输入商品名称
                 sql.append(" AND b.`productName` LIKE ?");
                 list.add("%"+bill.getProductName()+"%");
+            }
+            if(!StringUtils.isNullOrEmpty(bill.getUserName())){//判断用户是否输入商品名称
+                sql.append(" AND s.`userName` LIKE ?");
+                list.add("%"+bill.getUserName()+"%");
             }
             if(bill.getProviderId()>0){//判断是否选择了供应商
                 sql.append(" AND p.`providerId`=?");
@@ -69,6 +73,7 @@ public class BillDaoImpl  implements BillDao{
                 _bill.setIsPayment(rs.getInt("isPayment"));
                 _bill.setProviderId(rs.getInt("providerId"));
                 _bill.setProviderName(rs.getString("providerName"));
+                _bill.setUserName(rs.getString("userName"));
                 _bill.setCreationDate(rs.getTimestamp("creationDate"));
                 _bill.setCreatedBy(rs.getInt("createdBy"));
                 billList.add(_bill);

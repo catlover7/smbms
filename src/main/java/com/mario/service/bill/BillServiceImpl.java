@@ -54,6 +54,9 @@ public class BillServiceImpl implements BillService{
         System.out.println("query productName ---- > " + bill.getProductName());
         System.out.println("query providerId ---- > " + bill.getProviderId());
         System.out.println("query isPayment ---- > " + bill.getIsPayment());
+   //new
+      //  System.out.println("query userName---->"+bill.getUserName());
+
         try {
             connection=BaseDao.getConnection();
             billList=billDao.getBillList(connection,bill);

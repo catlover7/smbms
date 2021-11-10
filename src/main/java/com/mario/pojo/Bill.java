@@ -18,7 +18,15 @@ public class Bill {
     private Date modifyDate;//更新时间
 
     private String providerName;//供应商名称
+    private String userName;
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public String getProviderName() {
         return providerName;
