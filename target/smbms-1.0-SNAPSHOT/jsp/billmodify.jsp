@@ -21,6 +21,10 @@
                     <input type="text" name="productName" id="productName" value="${bill.productName }"> 
 					<font color="red"></font>
                 </div>
+              <div>
+                  <label for="userName">申请人</label>
+                  <input type="text" name="userName" id="userName" value="${bill.userName}">
+              </div>
                 <div>
                     <label for="proGrade">学位：</label>
                     <input type="text" name="proGrade" id="proGrade" value="${bill.proGrade }">

@@ -42,7 +42,7 @@
               <th width="10%">订单编码</th>
               <th width="20%">职位名称</th>
               <th width="10%">公司</th>
-			  <th width="10">姓名</th>
+			  <th width="10">申请人</th>
               <th width="10%">工资</th>
               <th width="10%">是否录用</th>
               <th width="10%">创建时间</th>

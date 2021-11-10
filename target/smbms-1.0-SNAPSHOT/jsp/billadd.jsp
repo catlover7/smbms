@@ -23,6 +23,10 @@
 				 <font color="red"></font>
              </div>
              <div>
+                 <label for="userName">申请人</label>
+                 <input type="text" name="userName" id="userName" value="">
+             </div>
+             <div>
                  <label for="proGrade">学位：</label>
                  <input type="text" name="proGrade" id="proGrade" value="">
 				 <font color="red"></font>

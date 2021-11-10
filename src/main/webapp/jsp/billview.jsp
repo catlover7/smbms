@@ -9,6 +9,7 @@
      <div class="providerView">
          <p><strong>订单编号：</strong><span>${bill.billCode }</span></p>
          <p><strong>职位名称：</strong><span>${bill.productName }</span></p>
+         <p><strong>申请人：</strong><span>${bill.userName}</span></p>
          <p><strong>学位：</strong><span>${bill.proGrade }</span></p>
          <p><strong>工作经验：</strong><span>${bill.workExperience }</span></p>
          <p><strong>工资：</strong><span>${bill.totalPrice }</span></p>

@@ -41,7 +41,7 @@ public class BillDaoImpl  implements BillDao{
         ResultSet rs=null;
         if(connection!=null){
             StringBuffer sql=new StringBuffer();
-            sql.append("SELECT b.*,p.proName AS providerName,s.userName AS userName FROM smbms_bill b, smbms_provider p,smbms_user s WHERE b.providerId = p.id");
+            sql.append("SELECT b.*,p.proName AS providerName,s.userName AS userName FROM smbms_bill b, smbms_provider p,smbms_user s WHERE b.providerId = p.id and s.id=b.createdBy");
             List<Object> list = new ArrayList<Object>();//用来暂存用户的输入
             if(!StringUtils.isNullOrEmpty(bill.getProductName())){//判断用户是否输入商品名称
                 sql.append(" AND b.`productName` LIKE ?");
