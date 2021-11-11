@@ -3,7 +3,6 @@ package com.mario.dao.bill;
 import com.mario.dao.BaseDao;
 import com.mario.pojo.Bill;
 import com.mysql.cj.util.StringUtils;
-import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,14 +16,14 @@ public class BillDaoImpl  implements BillDao{
         int updateNum=0;
         PreparedStatement pstm=null;
         if(connection!=null){
-//            String sql = "insert into smbms_bill (billCode,productName,productDesc," +
+//            String sql = "insert into smbms_bill (billCode,proProfession,productDesc," +
 //                    "totalPrice,isPayment,providerId,createdBy,creationDate,userLabel) " +
 //                    "values(?,?,?,?,?,?,?,?,?)";
 
-            String sql = "insert into smbms_bill (billCode,productName,productDesc," +
+            String sql = "insert into smbms_bill (billCode,proProfession,productDesc," +
                     "proGrade,workExperience,totalPrice,isPayment,providerId,createdBy,creationDate,userLabel) " +
                     "values(?,?,?,?,?,?,?,?,?,?,?)";
-            Object[] params = {bill.getBillCode(),bill.getProductName(),bill.getProductDesc(),
+            Object[] params = {bill.getBillCode(),bill.getProProfession(),bill.getProductDesc(),
                     bill.getProGrade(),bill.getWorkExperience(),bill.getTotalPrice(),bill.getIsPayment(),
                     bill.getProviderId(),bill.getCreatedBy(),bill.getCreationDate(),bill.getUserLabel()};
             updateNum = BaseDao.execute(connection, sql, params,pstm);
@@ -43,13 +42,13 @@ public class BillDaoImpl  implements BillDao{
             StringBuffer sql=new StringBuffer();
             sql.append("SELECT b.*,p.proName AS providerName,s.userName AS userName FROM smbms_bill b, smbms_provider p,smbms_user s WHERE b.providerId = p.id and s.id=b.createdBy");
             List<Object> list = new ArrayList<Object>();//用来暂存用户的输入
-            if(!StringUtils.isNullOrEmpty(bill.getProductName())){//判断用户是否输入职位名称
-                sql.append(" AND b.`productName` LIKE ?");
-                list.add("%"+bill.getProductName()+"%");
+            if(!StringUtils.isNullOrEmpty(bill.getProProfession())){//判断用户是否输入职位名称
+                sql.append(" AND b.`proProfession` LIKE ?");
+                list.add("%"+bill.getProProfession()+"%");
             }
-            if(!StringUtils.isNullOrEmpty(bill.getUserName())){//判断用户是否输入申请人名
-                sql.append(" AND s.`userName` LIKE ?");
-                list.add("%"+bill.getUserName()+"%");
+            if(!StringUtils.isNullOrEmpty(bill.getUserLabel())){//判断用户是否输入申请人名
+                sql.append(" AND b.`userLabel` LIKE ?");
+                list.add("%"+bill.getUserLabel()+"%");
             }
             if(bill.getProviderId()>0){//判断是否选择了公司
                 sql.append(" AND p.`providerId`=?");
@@ -65,7 +64,7 @@ public class BillDaoImpl  implements BillDao{
                 Bill _bill = new Bill();//创建一个bill对象存储查询到的属性
                 _bill.setId(rs.getInt("id"));
                 _bill.setBillCode(rs.getString("billCode"));
-                _bill.setProductName(rs.getString("productName"));
+                _bill.setProProfession(rs.getString("proProfession"));
                 _bill.setProductDesc(rs.getString("productDesc"));
                 _bill.setProGrade(rs.getString("proGrade"));
                 _bill.setWorkExperience(rs.getString("workExperience"));
@@ -76,7 +75,7 @@ public class BillDaoImpl  implements BillDao{
                 _bill.setUserName(rs.getString("userName"));
                 _bill.setCreationDate(rs.getTimestamp("creationDate"));
                 _bill.setCreatedBy(rs.getInt("createdBy"));
-                //new
+                //new 姓名
                 _bill.setUserLabel(rs.getString("userLabel"));
                 billList.add(_bill);
             }
@@ -114,7 +113,7 @@ public class BillDaoImpl  implements BillDao{
                 bill = new Bill();
                 bill.setId(rs.getInt("id"));
                 bill.setBillCode(rs.getString("billCode"));
-                bill.setProductName(rs.getString("productName"));
+                bill.setProProfession(rs.getString("proProfession"));
                 bill.setProductDesc(rs.getString("productDesc"));
                 bill.setProGrade(rs.getString("proGrade"));
                 bill.setWorkExperience(rs.getString("workExperience"));
@@ -138,14 +137,14 @@ public class BillDaoImpl  implements BillDao{
         int modifyNum=0;
         PreparedStatement pstm=null;
         if(connection!=null){
-//            String sql = "update smbms_bill set productName=?," +
+//            String sql = "update smbms_bill set proProfession=?," +
 //                    "productDesc=?,totalPrice=?," +
 //                    "isPayment=?,providerId=?,modifyBy=?,modifyDate=? where id = ? ";
 
-            String sql = "update smbms_bill set productName=?," +
+            String sql = "update smbms_bill set proProfession=?," +
                     "productDesc=?,proGrade=?,workExperience=?,totalPrice=?," +
                     "isPayment=?,providerId=?,modifyBy=?,modifyDate=?,userLabel=? where id = ? ";
-            Object[] params = {bill.getProductName(),bill.getProductDesc(),
+            Object[] params = {bill.getProProfession(),bill.getProductDesc(),
                     bill.getProGrade(),bill.getWorkExperience(),bill.getTotalPrice(),bill.getIsPayment(),
                     bill.getProviderId(),bill.getModifyBy(),bill.getModifyDate(),bill.getUserLabel(),bill.getId()};
             modifyNum=BaseDao.execute(connection,sql,params,pstm);

@@ -5,7 +5,7 @@ import java.util.Date;
 public class Bill {
     private Integer id;   //id
     private String billCode; //表单编码
-    private String productName; //职位名称
+    private String proProfession; //职位名称
     private String productDesc; //职位描述
     private String proGrade; //学位
     private String workExperience; //工作经验
@@ -58,11 +58,11 @@ public class Bill {
     public void setBillCode(String billCode) {
         this.billCode = billCode;
     }
-    public String getProductName() {
-        return productName;
+    public String getProProfession() {
+        return proProfession;
     }
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProProfession(String proProfession) {
+        this.proProfession = proProfession;
     }
     public String getProductDesc() {
         return productDesc;

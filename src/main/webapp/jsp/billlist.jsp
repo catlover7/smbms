@@ -11,7 +11,9 @@
        <form method="get" action="${pageContext.request.contextPath }/jsp/bill.do">
 			<input name="method" value="query" class="input-text" type="hidden">
 			<span>职位名称：</span>
-			<input name="queryProductName" type="text" value="${queryProductName }">
+			<input name="queryproProfession" type="text" value="${queryproProfession }">
+		   <span>姓名：</span>
+		   <input name="queryUserLabel" type="text" value="${queryUserLabel}">
 			 
 <%--			<span>公司：</span>--%>
 <%--			<select name="queryProviderId">--%>
@@ -55,7 +57,7 @@
 					<span>${bill.billCode }</span>
 					</td>
 					<td>
-					<span>${bill.productName }</span>
+					<span>${bill.proProfession }</span>
 					</td>
 			<td>
 				<span>

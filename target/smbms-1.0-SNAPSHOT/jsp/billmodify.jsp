@@ -17,8 +17,8 @@
                     <input type="text" name="billCode" id="billCode" value="${bill.billCode }" readonly="readonly"> 
                 </div>
                 <div>
-                    <label for="productName">职位名称：</label>
-                    <input type="text" name="productName" id="productName" value="${bill.productName }"> 
+                    <label for="proProfession">职位名称：</label>
+                    <input type="text" name="proProfession" id="proProfession" value="${bill.proProfession }">
 					<font color="red"></font>
                 </div>
               <div>

@@ -18,8 +18,8 @@
 				 <font color="red"></font>
              </div>
              <div>
-                 <label for="productName">职位名称：</label>
-                 <input type="text" name="productName" id="productName" value=""> 
+                 <label for="proProfession">职位名称：</label>
+                 <input type="text" name="proProfession" id="proProfession" value="">
 				 <font color="red"></font>
              </div>
              <div>

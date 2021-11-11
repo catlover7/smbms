@@ -101,7 +101,7 @@ public class BillServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("modify===============");
         String id = request.getParameter("id");
-        String productName = request.getParameter("productName");
+        String proProfession = request.getParameter("proProfession");
         String productDesc = request.getParameter("productDesc");
         String proGrade = request.getParameter("proGrade");
         String workExperience = request.getParameter("workExperience");
@@ -113,7 +113,7 @@ public class BillServlet extends HttpServlet {
 
         Bill bill = new Bill();
         bill.setId(Integer.valueOf(id));
-        bill.setProductName(productName);
+        bill.setProProfession(proProfession);
         bill.setProductDesc(productDesc);
         bill.setProGrade(proGrade);
         bill.setWorkExperience(workExperience);
@@ -160,7 +160,7 @@ public class BillServlet extends HttpServlet {
     private void add(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String billCode = request.getParameter("billCode");
-        String productName = request.getParameter("productName");
+        String proProfession = request.getParameter("proProfession");
         String productDesc = request.getParameter("productDesc");
         String proGrade = request.getParameter("proGrade");
 
@@ -173,7 +173,7 @@ public class BillServlet extends HttpServlet {
 
         Bill bill = new Bill();
         bill.setBillCode(billCode);
-        bill.setProductName(productName);
+        bill.setProProfession(proProfession);
         bill.setProductDesc(productDesc);
         bill.setProGrade(proGrade);
         bill.setWorkExperience(workExperience);
@@ -202,11 +202,15 @@ public class BillServlet extends HttpServlet {
         providerList = providerService.getProviderList("","");
         request.setAttribute("providerList", providerList);
 
-        String queryProductName = request.getParameter("queryProductName");
+        String queryproProfession = request.getParameter("queryproProfession");
         String queryProviderId = request.getParameter("queryProviderId");
         String queryIsPayment = request.getParameter("queryIsPayment");
-        if(StringUtils.isNullOrEmpty(queryProductName)){
-            queryProductName = "";
+        String queryUserLabel = request.getParameter("queryUserLabel");
+        if(StringUtils.isNullOrEmpty(queryproProfession)){
+            queryproProfession = "";
+        }
+        if(StringUtils.isNullOrEmpty(queryUserLabel)){
+            queryUserLabel = "";
         }
 
         List<Bill> billList = new ArrayList<Bill>();
@@ -223,12 +227,14 @@ public class BillServlet extends HttpServlet {
         }else{
             bill.setProviderId(Integer.parseInt(queryProviderId));
         }
-        bill.setProductName(queryProductName);
+        bill.setProProfession(queryproProfession);
+        bill.setUserLabel(queryUserLabel);
         billList = billService.getBillList(bill);
         request.setAttribute("billList", billList);
-        request.setAttribute("queryProductName", queryProductName);
+        request.setAttribute("queryproProfession", queryproProfession);
         request.setAttribute("queryProviderId", queryProviderId);
         request.setAttribute("queryIsPayment", queryIsPayment);
+        request.setAttribute("queryUserLabel",queryUserLabel);
         request.getRequestDispatcher("billlist.jsp").forward(request, response);
 
     }

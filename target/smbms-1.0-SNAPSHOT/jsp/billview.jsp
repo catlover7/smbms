@@ -8,7 +8,7 @@
      </div>
      <div class="providerView">
          <p><strong>表单编号：</strong><span>${bill.billCode }</span></p>
-         <p><strong>职位名称：</strong><span>${bill.productName }</span></p>
+         <p><strong>职位名称：</strong><span>${bill.proProfession }</span></p>
          <p><strong>姓名：</strong><span>${bill.userLabel}</span></p>
          <p><strong>修改者：</strong><span>${bill.userName}</span></p>
          <p><strong>学位：</strong><span>${bill.proGrade }</span></p>

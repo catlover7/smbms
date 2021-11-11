@@ -4,6 +4,7 @@ import com.mario.dao.BaseDao;
 import com.mario.dao.bill.BillDao;
 import com.mario.dao.bill.BillDaoImpl;
 import com.mario.pojo.Bill;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -51,9 +52,11 @@ public class BillServiceImpl implements BillService{
     public List<Bill> getBillList(Bill bill) {
         List<Bill> billList = new ArrayList<Bill>();
         Connection connection=null;
-        System.out.println("query productName ---- > " + bill.getProductName());
+        System.out.println("query proProfession ---- > " + bill.getProProfession());
         System.out.println("query providerId ---- > " + bill.getProviderId());
         System.out.println("query isPayment ---- > " + bill.getIsPayment());
+        //申请者
+        System.out.println("query userLabel------>"+bill.getUserLabel());
    //new
       //  System.out.println("query userName---->"+bill.getUserName());
 

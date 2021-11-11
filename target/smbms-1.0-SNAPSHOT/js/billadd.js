@@ -1,5 +1,5 @@
 var billCode = null;
-var productName = null;
+var proProfession = null;
 var proGrade = null;
 var workExperience = null;
 var totalPrice = null;
@@ -22,7 +22,7 @@ function priceReg (value){
 
 $(function(){
 	billCode = $("#billCode");
-	productName = $("#productName");
+	proProfession = $("#proProfession");
 	proGrade = $("#proGrade");
 	workExperience = $("#workExperience");
 	totalPrice = $("#totalPrice");
@@ -32,7 +32,7 @@ $(function(){
 	backBtn = $("#back");
 	//初始化的时候，要把所有的提示信息变为：* 以提示必填项，更灵活，不要写在页面上
 	billCode.next().html("*");
-	productName.next().html("*");
+	proProfession.next().html("*");
 	proGrade.next().html("*");
 	workExperience.next().html("*");
 	totalPrice.next().html("*");
@@ -76,13 +76,13 @@ $(function(){
 		validateTip(billCode.next(),{"color":"#666666"},"* 请输入表单编码",false);
 	}).focus();
 	
-	productName.on("focus",function(){
-		validateTip(productName.next(),{"color":"#666666"},"* 请输入职位名称",false);
+	proProfession.on("focus",function(){
+		validateTip(proProfession.next(),{"color":"#666666"},"* 请输入职位名称",false);
 	}).on("blur",function(){
-		if(productName.val() != null && productName.val() != ""){
-			validateTip(productName.next(),{"color":"green"},imgYes,true);
+		if(proProfession.val() != null && proProfession.val() != ""){
+			validateTip(proProfession.next(),{"color":"green"},imgYes,true);
 		}else{
-			validateTip(productName.next(),{"color":"red"},imgNo+" 职位名称不能为空，请重新输入",false);
+			validateTip(proProfession.next(),{"color":"red"},imgNo+" 职位名称不能为空，请重新输入",false);
 		}
 		
 	});
@@ -139,8 +139,8 @@ $(function(){
 	addBtn.on("click",function(){
 		if(billCode.attr("validateStatus") != "true"){
 			billCode.blur();
-		}else if(productName.attr("validateStatus") != "true"){
-			productName.blur();
+		}else if(proProfession.attr("validateStatus") != "true"){
+			proProfession.blur();
 		}
 		else if(proGrade.attr("validateStatus") != "true"){
 			proGrade.blur();
