@@ -22,7 +22,11 @@
 					<font color="red"></font>
                 </div>
               <div>
-                  <label for="userName">申请人</label>
+                  <label for="userLabel">姓名</label>
+                  <input type="text" name="userLabel" id="userLabel" value="${bill.userLabel}">
+              </div>
+              <div>
+                  <label for="userName">修改者</label>
                   <input type="text" name="userName" id="userName" value="${bill.userName}">
               </div>
                 <div>

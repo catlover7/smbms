@@ -1,6 +1,7 @@
 var billCode = null;
 var productName = null;
 var proGrade = null;
+var userLabel=null;
 var workExperience = null;
 var totalPrice = null;
 var providerId = null;
@@ -26,6 +27,7 @@ $(function(){
 	workExperience = $("#workExperience");
 	totalPrice = $("#totalPrice");
 	providerId = $("#providerId");
+	userLabel =$("#userLabel");
 	addBtn = $("#save");
 	backBtn = $("#back");
 	
@@ -36,7 +38,8 @@ $(function(){
 	workExperience.next().html("*");
 	totalPrice.next().html("*");
 	providerId.next().html("*");
-	
+	userLabel.next().html("*");
+
 	$.ajax({
 		type:"GET",//请求类型
 		url:path+"/jsp/bill.do",//请求的url
@@ -80,7 +83,16 @@ $(function(){
 		}
 		
 	});
-	
+	userLabel.on("focus",function(){
+		validateTip(userLabel.next(),{"color":"#666666"},"* 请输入姓名",false);
+	}).on("blur",function(){
+		if(userLabel.val() != null && userLabel.val() != ""){
+			validateTip(userLabel.next(),{"color":"green"},imgYes,true);
+		}else{
+			validateTip(userLabel.next(),{"color":"red"},imgNo+" 姓名不能为空，请重新输入",false);
+		}
+
+	});
 	proGrade.on("focus",function(){
 		validateTip(proGrade.next(),{"color":"#666666"},"* 请输入学位",false);
 	}).on("blur",function(){
@@ -139,7 +151,7 @@ $(function(){
 			&& null != referer 
 			&& "" != referer
 			&& "null" != referer
-			&& referer.length > 4
+			// && referer.length > 4
 		){
 		 window.location.href = referer;
 		}else{

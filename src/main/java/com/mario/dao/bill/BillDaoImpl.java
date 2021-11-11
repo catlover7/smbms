@@ -3,6 +3,7 @@ package com.mario.dao.bill;
 import com.mario.dao.BaseDao;
 import com.mario.pojo.Bill;
 import com.mysql.cj.util.StringUtils;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,22 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BillDaoImpl  implements BillDao{
-
     //根据用户输入的值，新增表单
     public int add(Connection connection, Bill bill) throws Exception {
         int updateNum=0;
         PreparedStatement pstm=null;
         if(connection!=null){
 //            String sql = "insert into smbms_bill (billCode,productName,productDesc," +
-//                    "totalPrice,isPayment,providerId,createdBy,creationDate) " +
-//                    "values(?,?,?,?,?,?,?,?)";
+//                    "totalPrice,isPayment,providerId,createdBy,creationDate,userLabel) " +
+//                    "values(?,?,?,?,?,?,?,?,?)";
 
             String sql = "insert into smbms_bill (billCode,productName,productDesc," +
-                    "proGrade,workExperience,totalPrice,isPayment,providerId,createdBy,creationDate) " +
-                    "values(?,?,?,?,?,?,?,?,?,?)";
+                    "proGrade,workExperience,totalPrice,isPayment,providerId,createdBy,creationDate,userLabel) " +
+                    "values(?,?,?,?,?,?,?,?,?,?,?)";
             Object[] params = {bill.getBillCode(),bill.getProductName(),bill.getProductDesc(),
-                  bill.getProGrade(),bill.getWorkExperience(),bill.getTotalPrice(),bill.getIsPayment(),
-                    bill.getProviderId(),bill.getCreatedBy(),bill.getCreationDate()};
+                    bill.getProGrade(),bill.getWorkExperience(),bill.getTotalPrice(),bill.getIsPayment(),
+                    bill.getProviderId(),bill.getCreatedBy(),bill.getCreationDate(),bill.getUserLabel()};
             updateNum = BaseDao.execute(connection, sql, params,pstm);
             BaseDao.closeResource(null, pstm, null);
             System.out.println("dao--------修改行数 " + updateNum);
@@ -76,6 +76,8 @@ public class BillDaoImpl  implements BillDao{
                 _bill.setUserName(rs.getString("userName"));
                 _bill.setCreationDate(rs.getTimestamp("creationDate"));
                 _bill.setCreatedBy(rs.getInt("createdBy"));
+                //new
+                _bill.setUserLabel(rs.getString("userLabel"));
                 billList.add(_bill);
             }
             BaseDao.closeResource(null,pstm,rs);
@@ -122,6 +124,9 @@ public class BillDaoImpl  implements BillDao{
                 bill.setProviderName(rs.getString("providerName"));
                 bill.setModifyBy(rs.getInt("modifyBy"));
                 bill.setModifyDate(rs.getTimestamp("modifyDate"));
+
+                //new
+                bill.setUserLabel(rs.getString("userLabel"));
             }
             BaseDao.closeResource(null, pstm, rs);
         }
@@ -139,10 +144,10 @@ public class BillDaoImpl  implements BillDao{
 
             String sql = "update smbms_bill set productName=?," +
                     "productDesc=?,proGrade=?,workExperience=?,totalPrice=?," +
-                    "isPayment=?,providerId=?,modifyBy=?,modifyDate=? where id = ? ";
+                    "isPayment=?,providerId=?,modifyBy=?,modifyDate=?,userLabel=? where id = ? ";
             Object[] params = {bill.getProductName(),bill.getProductDesc(),
                     bill.getProGrade(),bill.getWorkExperience(),bill.getTotalPrice(),bill.getIsPayment(),
-                    bill.getProviderId(),bill.getModifyBy(),bill.getModifyDate(),bill.getId()};
+                    bill.getProviderId(),bill.getModifyBy(),bill.getModifyDate(),bill.getUserLabel(),bill.getId()};
             modifyNum=BaseDao.execute(connection,sql,params,pstm);
             BaseDao.closeResource(null,pstm,null);
         }
@@ -178,4 +183,5 @@ public class BillDaoImpl  implements BillDao{
 //        BaseDao.closeResource(connection,null,null);
 //        System.out.println(billList);
 //    }
+
 }

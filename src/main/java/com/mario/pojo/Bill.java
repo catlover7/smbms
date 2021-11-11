@@ -18,7 +18,19 @@ public class Bill {
     private Date modifyDate;//更新时间
 
     private String providerName;//供应商名称
-    private String userName;
+    //通过三表查询得到企业，用户，表单统一的管理员
+    private String userName; //更新者姓名（管理员）
+
+    //new 登陆者确定姓名
+    private  String userLabel;//表单申请用户
+
+    public String getUserLabel() {
+        return userLabel;
+    }
+
+    public void setUserLabel(String userLabel) {
+        this.userLabel = userLabel;
+    }
 
     public String getUserName() {
         return userName;

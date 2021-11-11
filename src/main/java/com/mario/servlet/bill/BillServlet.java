@@ -108,6 +108,8 @@ public class BillServlet extends HttpServlet {
         String totalPrice = request.getParameter("totalPrice");
         String providerId = request.getParameter("providerId");
         String isPayment = request.getParameter("isPayment");
+        //new
+        String userLabel = request.getParameter("userLabel");
 
         Bill bill = new Bill();
         bill.setId(Integer.valueOf(id));
@@ -118,6 +120,9 @@ public class BillServlet extends HttpServlet {
         bill.setIsPayment(Integer.parseInt(isPayment));
         bill.setTotalPrice(totalPrice);
         bill.setProviderId(Integer.parseInt(providerId));
+
+        //new
+        bill.setUserLabel(userLabel);
 
         bill.setModifyBy(((User)request.getSession().getAttribute(Constants.USER_SESSION)).getId());
         bill.setModifyDate(new Date());
@@ -163,6 +168,8 @@ public class BillServlet extends HttpServlet {
         String totalPrice = request.getParameter("totalPrice");
         String providerId = request.getParameter("providerId");
         String isPayment = request.getParameter("isPayment");
+        //new
+        String userLabel = request.getParameter("userLabel");
 
         Bill bill = new Bill();
         bill.setBillCode(billCode);
@@ -175,6 +182,8 @@ public class BillServlet extends HttpServlet {
         bill.setProviderId(Integer.parseInt(providerId));
         bill.setCreatedBy(((User)request.getSession().getAttribute(Constants.USER_SESSION)).getId());
         bill.setCreationDate(new Date());
+        //new
+        bill.setUserLabel(userLabel);
         boolean flag = false;
         BillService billService = new BillServiceImpl();
         flag = billService.add(bill);
@@ -223,4 +232,5 @@ public class BillServlet extends HttpServlet {
         request.getRequestDispatcher("billlist.jsp").forward(request, response);
 
     }
+
 }

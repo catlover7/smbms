@@ -4,6 +4,7 @@ var proGrade = null;
 var workExperience = null;
 var totalPrice = null;
 var providerId = null;
+var userLabel=null;
 var addBtn = null;
 var backBtn = null;
 
@@ -26,6 +27,7 @@ $(function(){
 	workExperience = $("#workExperience");
 	totalPrice = $("#totalPrice");
 	providerId = $("#providerId");
+	userLabel =$("#userLabel");
 	addBtn = $("#add");
 	backBtn = $("#back");
 	//初始化的时候，要把所有的提示信息变为：* 以提示必填项，更灵活，不要写在页面上
@@ -35,7 +37,8 @@ $(function(){
 	workExperience.next().html("*");
 	totalPrice.next().html("*");
 	providerId.next().html("*");
-	
+	userLabel.next().html("*");
+
 	$.ajax({
 		type:"GET",//请求类型
 		url:path+"/jsp/bill.do",//请求的url
@@ -82,6 +85,17 @@ $(function(){
 			validateTip(productName.next(),{"color":"red"},imgNo+" 职位名称不能为空，请重新输入",false);
 		}
 		
+	});
+
+	userLabel.on("focus",function(){
+		validateTip(userLabel.next(),{"color":"#666666"},"* 请输入姓名",false);
+	}).on("blur",function(){
+		if(userLabel.val() != null && userLabel.val() != ""){
+			validateTip(userLabel.next(),{"color":"green"},imgYes,true);
+		}else{
+			validateTip(userLabel.next(),{"color":"red"},imgNo+" 姓名不能为空，请重新输入",false);
+		}
+
 	});
 
 	proGrade.on("focus",function(){
@@ -145,7 +159,7 @@ $(function(){
 			&& null != referer
 			&& "" != referer
 			&& "null" != referer
-			&& referer.length > 4
+			// && referer.length > 4
 		){
 		 window.location.href = referer;
 		}else{
