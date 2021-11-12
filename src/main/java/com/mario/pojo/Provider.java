@@ -6,7 +6,7 @@ public class Provider {
     private Integer id;   //id
     private String proCode; //企业编码
     private String proName; //企业名称
-    private String proDesc; //企业描述
+    private String proDesc; //企业招聘需求
     private String proContact; //企业联系人
     private String proPhone; //企业联系人电话
     private String proAddress; //企业地址

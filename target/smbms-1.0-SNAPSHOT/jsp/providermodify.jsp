@@ -39,7 +39,7 @@
 
               
               <div>
-                  <label for="proDesc">描述：</label>
+                  <label for="proDesc">公司招聘需求：</label>
                   <input type="text" name="proDesc" id="proDesc" value="${provider.proDesc }"> 
               </div>
               <div class="providerAddBtn">

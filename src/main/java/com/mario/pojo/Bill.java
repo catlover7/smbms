@@ -17,7 +17,7 @@ public class Bill {
     private Integer modifyBy; //更新者
     private Date modifyDate;//更新时间
 
-    private String providerName;//供应商名称
+    private String providerName;//公司名称
     //通过三表查询得到企业，用户，表单统一的管理员
     private String userName; //更新者姓名（管理员）
 

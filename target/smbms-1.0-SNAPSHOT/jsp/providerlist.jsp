@@ -29,7 +29,8 @@
                 <th width="10%">联系电话</th>
                 <th width="10%">企业地址</th>
                 <th width="10%">创建时间</th>
-                <th width="30%">操作</th>
+				<th width="10%">企业招聘需求</th>
+                <th width="20%">操作</th>
             </tr>
             <c:forEach var="provider" items="${providerList }" varStatus="status">
 				<tr>
@@ -52,6 +53,9 @@
 					<span>
 					<fmt:formatDate value="${provider.creationDate}" pattern="yyyy-MM-dd"/>
 					</span>
+					</td>
+					<td>
+						<span>${provider.proDesc}</span>
 					</td>
 					<td>
 					<span><a class="viewProvider" href="javascript:;" proid=${provider.id } proname=${provider.proName }><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>

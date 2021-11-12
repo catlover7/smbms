@@ -12,7 +12,7 @@
             <p><strong>联系人：</strong><span>${provider.proContact }</span></p>
             <p><strong>联系电话：</strong><span>${provider.proPhone }</span></p>
             <p><strong>企业地址：</strong><span>${provider.proAddress }</span></p>
-            <p><strong>描述：</strong><span>${provider.proDesc}</span></p>
+            <p><strong>公司招聘需求：</strong><span>${provider.proDesc}</span></p>
 			<div class="providerAddBtn">
             	<input type="button" id="back" name="back" value="返回" >
             </div>

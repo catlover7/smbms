@@ -42,7 +42,7 @@
                     <input type="text" name="proFax" id="proFax" value="">
                 </div>
                 <div>
-                    <label for="proDesc">描述：</label>
+                    <label for="proDesc">企业招聘需求：</label>
                     <input type="text" name="proDesc" id="proDesc" value=""> 
                 </div>
                 <div class="providerAddBtn">
