@@ -56,7 +56,7 @@ public class ProviderDaoImpl implements ProviderDao{
                 _provider.setProContact(rs.getString("proContact"));
                 _provider.setProPhone(rs.getString("proPhone"));
                 _provider.setProAddress(rs.getString("proAddress"));
-                _provider.setProFax(rs.getString("proFax"));
+                _provider.setProFax(rs.getInt("proFax"));
                 _provider.setCreationDate(rs.getTimestamp("creationDate"));
                 providerList.add(_provider);
             }
@@ -94,7 +94,7 @@ public class ProviderDaoImpl implements ProviderDao{
                 provider.setProContact(rs.getString("proContact"));
                 provider.setProPhone(rs.getString("proPhone"));
                 provider.setProAddress(rs.getString("proAddress"));
-                provider.setProFax(rs.getString("proFax"));
+                provider.setProFax(rs.getInt("proFax"));
                 provider.setCreatedBy(rs.getInt("createdBy"));
                 provider.setCreationDate(rs.getTimestamp("creationDate"));
                 provider.setModifyBy(rs.getInt("modifyBy"));

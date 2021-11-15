@@ -110,7 +110,7 @@ public class ProviderServlet extends HttpServlet {
         provider.setId(Integer.valueOf(id));
         provider.setProContact(proContact);
         provider.setProPhone(proPhone);
-        provider.setProFax(proFax);
+        provider.setProFax(Integer.parseInt(proFax));
         provider.setProAddress(proAddress);
         provider.setProDesc(proDesc);
         provider.setModifyBy(((User)request.getSession().getAttribute(Constants.USER_SESSION)).getId());
@@ -151,7 +151,7 @@ public class ProviderServlet extends HttpServlet {
         provider.setProName(proName);
         provider.setProContact(proContact);
         provider.setProPhone(proPhone);
-        provider.setProFax(proFax);
+        provider.setProFax(Integer.parseInt(proFax));
         provider.setProAddress(proAddress);
         provider.setProDesc(proDesc);
         provider.setCreatedBy(((User)request.getSession().getAttribute(Constants.USER_SESSION)).getId());

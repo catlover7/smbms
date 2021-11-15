@@ -25,9 +25,9 @@ public class BillServiceImpl implements BillService{
         Connection connection = null;
         try {
             connection = BaseDao.getConnection();//获得连接
-            connection.setAutoCommit(false);//开启JDBC事务管理
+//            connection.setAutoCommit(false);//开启JDBC事务管理
             int updateRows = billDao.add(connection,bill);
-            connection.commit();
+//            connection.commit();
             if(updateRows > 0){
                 flag = true;
                 System.out.println("add success!");
@@ -36,12 +36,12 @@ public class BillServiceImpl implements BillService{
             }
         } catch (Exception e) {
             e.printStackTrace();
-            try {
-                System.out.println("rollback==================");
-                connection.rollback();//失败就回滚
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
+//            try {
+//                System.out.println("rollback==================");
+////                connection.rollback();//失败就回滚
+//            } catch (SQLException e1) {
+//                e1.printStackTrace();
+//            }
         }finally{
             //在service层进行connection连接的关闭
             BaseDao.closeResource(connection, null, null);

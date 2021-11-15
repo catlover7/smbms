@@ -3,6 +3,7 @@ package com.mario.dao.bill;
 import com.mario.dao.BaseDao;
 import com.mario.pojo.Bill;
 import com.mysql.cj.util.StringUtils;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -169,18 +170,22 @@ public class BillDaoImpl  implements BillDao{
         }
         return billcount;
     }
-//    @Test
-//    public void test(){
-//        BillDaoImpl billDao = new BillDaoImpl();
-//        Connection connection=BaseDao.getConnection();
-//        int billList=0;
-//        try {
-//            billList=billDao.deleteBillById(connection,"19");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        BaseDao.closeResource(connection,null,null);
-//        System.out.println(billList);
-//    }
+    @Test
+    public void test(){
+        BillDaoImpl billDao = new BillDaoImpl();
+        Bill bill=null;
+        Connection connection=BaseDao.getConnection();
+        try {
+            bill = new Bill();
+            bill.setIsPayment(1);
+            bill.setUserLabel("hzw");
+            bill.setProviderId(1003);
+            int add = billDao.add(connection, bill);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        BaseDao.closeResource(connection,null,null);
+
+    }
 
 }

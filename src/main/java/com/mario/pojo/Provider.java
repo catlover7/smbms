@@ -10,7 +10,7 @@ public class Provider {
     private String proContact; //企业联系人
     private String proPhone; //企业联系人电话
     private String proAddress; //企业地址
-    private String proFax; //企业传真
+    private Integer proFax; //企业招聘人数
     private Integer createdBy; //创建者
     private Date creationDate; //创建时间
     private Integer modifyBy; //更新者
@@ -58,10 +58,10 @@ public class Provider {
     public void setProAddress(String proAddress) {
         this.proAddress = proAddress;
     }
-    public String getProFax() {
+    public Integer getProFax() {
         return proFax;
     }
-    public void setProFax(String proFax) {
+    public void setProFax(Integer proFax) {
         this.proFax = proFax;
     }
     public Integer getCreatedBy() {
