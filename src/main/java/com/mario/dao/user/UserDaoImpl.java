@@ -31,7 +31,7 @@ public class UserDaoImpl implements UserDao
                 user.setUserCode(rs.getString("userCode"));
                 user.setUserName(rs.getString("userName"));
                 user.setUserPassword(rs.getString("userPassword"));
-                user.setGender(rs.getInt("gender"));
+                user.setGender(rs.getString("gender"));
                 user.setBirthday(rs.getDate("birthday"));
                 user.setPhone(rs.getString("phone"));
                 user.setAddress(rs.getString("address"));
@@ -119,7 +119,7 @@ public class UserDaoImpl implements UserDao
                 _user.setId(rs.getInt("id"));
                 _user.setUserCode(rs.getString("userCode"));
                 _user.setUserName(rs.getString("userName"));
-                _user.setGender(rs.getInt("gender"));
+                _user.setGender(rs.getString("gender"));
                 _user.setBirthday(rs.getDate("birthday"));
                 _user.setPhone(rs.getString("phone"));
                 _user.setUserRole(rs.getInt("userRole"));
@@ -174,7 +174,7 @@ public class UserDaoImpl implements UserDao
                 user.setUserCode(rs.getString("userCode"));
                 user.setUserName(rs.getString("userName"));
                 user.setUserPassword(rs.getString("userPassword"));
-                user.setGender(rs.getInt("gender"));
+                user.setGender(rs.getString("gender"));
                 user.setBirthday(rs.getDate("birthday"));
                 user.setPhone(rs.getString("phone"));
                 user.setAddress(rs.getString("address"));

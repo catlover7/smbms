@@ -230,7 +230,7 @@ public class UserServlet extends HttpServlet {
         user.setUserName(userName);
         user.setUserPassword(userPassword);
         user.setAddress(address);
-        user.setGender(Integer.valueOf(gender));
+        user.setGender(gender);
         user.setPhone(phone);
         try {
             user.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(birthday));
@@ -354,7 +354,7 @@ public class UserServlet extends HttpServlet {
         User user = new User();
         user.setId(Integer.valueOf(id));
         user.setUserName(userName);
-        user.setGender(Integer.valueOf(gender));
+        user.setGender(gender);
         try {
             user.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(birthday));
         } catch (ParseException e) {

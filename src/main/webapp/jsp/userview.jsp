@@ -10,10 +10,11 @@
             <p><strong>用户编号：</strong><span>${user.userCode }</span></p>
             <p><strong>用户名称：</strong><span>${user.userName }</span></p>
             <p><strong>用户性别：</strong>
-            	<span>
-            		<c:if test="${user.gender == 1 }">男</c:if>
-					<c:if test="${user.gender == 2 }">女</c:if>
-				</span>
+<%--            	<span>--%>
+<%--            		<c:if test="${user.gender == 1 }">男</c:if>--%>
+<%--					<c:if test="${user.gender == 2 }">女</c:if>--%>
+<%--				</span>--%>
+                <span>${user.gender }</span>
 			</p>
             <p><strong>出生日期：</strong><span>${user.birthday }</span></p>
             <p><strong>用户电话：</strong><span>${user.phone }</span></p>

@@ -50,8 +50,9 @@
 						</td>
 						<td>
 							<span>
-								<c:if test="${user.gender==1}">男</c:if>
-								<c:if test="${user.gender==2}">女</c:if>
+<%--								<c:if test="${user.gender==1}">男</c:if>--%>
+<%--								<c:if test="${user.gender==2}">女</c:if>--%>
+								${user.gender}
 							</span>
 						</td>
 <%--						<td>--%>

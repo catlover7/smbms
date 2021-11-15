@@ -3,6 +3,7 @@ var userName = null;
 var userPassword = null;
 var ruserPassword = null;
 var phone = null;
+var gender=null;
 var birthday = null;
 var userRole = null;
 var addBtn = null;
@@ -10,6 +11,7 @@ var backBtn = null;
 
 
 $(function(){
+	gender=$("#gender");
 	userCode = $("#userCode");
 	userName = $("#userName");
 	userPassword = $("#userPassword");
@@ -20,6 +22,7 @@ $(function(){
 	addBtn = $("#add");
 	backBtn = $("#back");
 	//初始化的时候，要把所有的提示信息变为：* 以提示必填项，更灵活，不要写在页面上
+	gender.next().html("*");
 	userCode.next().html("*");
 	userName.next().html("*");
 	userPassword.next().html("*");
@@ -94,6 +97,18 @@ $(function(){
 		}
 		
 	});
+
+	gender.bind("focus",function(){
+		validateTip(gender.next(),{"color":"#666666"},"* 请输入性别男或女",false);
+	}).bind("blur",function(){
+		if(gender.val() != null &&gender.val().length > 1
+			&& gender.val().length < 10){
+			validateTip(gender.next(),{"color":"green"},imgYes,true);
+		}else{
+			validateTip(gender.next(),{"color":"red"},imgNo+" 性别输入的不符合规范，请重新输入",false);
+		}
+
+	});
 	
 	userPassword.bind("focus",function(){
 		validateTip(userPassword.next(),{"color":"#666666"},"* 密码长度必须是大于6小于20",false);
@@ -164,6 +179,9 @@ $(function(){
 			phone.blur();
 		}else if(userRole.attr("validateStatus") != "true"){
 			userRole.blur();
+
+		}else if(gender.attr("validateStatus")!="true"){
+			gender.blur();
 		}else{
 			if(confirm("是否确认提交数据")){
 				$("#userForm").submit();
@@ -176,7 +194,8 @@ $(function(){
 			&& null != referer 
 			&& "" != referer
 			&& "null" != referer
-			&& referer.length > 4){
+			// && referer.length > 4
+		){
 		 window.location.href = referer;
 		}else{
 			history.back(-1);

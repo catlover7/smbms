@@ -33,11 +33,12 @@
 					<font color="red"></font>
                 </div>
                 <div>
-                    <label >用户性别：</label>
-					<select name="gender" id="gender">
-					    <option value="1" selected="selected">男</option>
-					    <option value="2">女</option>
-					 </select>
+<%--					<select name="gender" id="gender">--%>
+<%--					    <option value="1" selected="selected">男</option>--%>
+<%--					    <option value="2">女</option>--%>
+<%--					 </select>--%>
+                    <label for="gender">性别:</label>
+                    <input type="text" name="gender" id="gender" value="">
                 </div>
                 <div>
                     <label for="birthday">出生日期：</label>

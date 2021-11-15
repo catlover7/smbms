@@ -7,7 +7,7 @@ public class User {
     private String userCode; //用户编码
     private String userName; //用户名称
     private String userPassword; //用户密码
-    private Integer gender;  //性别
+    private String gender;  //性别
     private Date birthday;  //出生日期
     private String phone;   //电话
     private String address; //地址
@@ -56,10 +56,10 @@ public class User {
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
-    public Integer getGender() {
+    public String getGender() {
         return gender;
     }
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
     public Date getBirthday() {
@@ -111,6 +111,26 @@ public class User {
         this.modifyDate = modifyDate;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userCode='" + userCode + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthday=" + birthday +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", userRole=" + userRole +
+                ", createdBy=" + createdBy +
+                ", creationDate=" + creationDate +
+                ", modifyBy=" + modifyBy +
+                ", modifyDate=" + modifyDate +
+                ", age=" + age +
+                ", userRoleName='" + userRoleName + '\'' +
+                '}';
+    }
 }
 
 

@@ -4,8 +4,10 @@ var phone = null;
 var userRole = null;
 var saveBtn = null;
 var backBtn = null;
+var gender=null;
 
 $(function(){
+	gender=$("#gender");
 	userName = $("#userName");
 	birthday = $("#birthday");
 	phone = $("#phone");
@@ -17,6 +19,7 @@ $(function(){
 	birthday.next().html("*");
 	phone.next().html("*");
 	userRole.next().html("*");
+	gender.next().html("*");
 	
 	
 	$.ajax({
@@ -46,8 +49,19 @@ $(function(){
 			validateTip(userRole.next(),{"color":"red"},imgNo+" 获取用户角色列表error",false);
 		}
 	});
-	
-	
+
+	gender.bind("focus",function(){
+		validateTip(gender.next(),{"color":"#666666"},"* 请输入性别男或女",false);
+	}).bind("blur",function(){
+		if(gender.val() != null &&gender.val().length > 1
+			&& gender.val().length < 10){
+			validateTip(gender.next(),{"color":"green"},imgYes,true);
+		}else{
+			validateTip(gender.next(),{"color":"red"},imgNo+" 性别输入的不符合规范，请重新输入",false);
+		}
+
+	});
+
 	userName.on("focus",function(){
 		validateTip(userName.next(),{"color":"#666666"},"* 用户名长度必须是大于1小于10的字符",false);
 	}).on("blur",function(){
@@ -97,10 +111,13 @@ $(function(){
 		phone.blur();
 		birthday.blur();
 		userRole.blur();
+		gender.blur();
 		if(userName.attr("validateStatus") == "true" 
 			&& phone.attr("validateStatus") == "true"
 			&& birthday.attr("validateStatus") == "true"
-			&& userRole.attr("validateStatus") == "true"){
+			&& userRole.attr("validateStatus") == "true"
+			&&gender.attr("validateStatus")=="true"
+		){
 			if(confirm("是否确认要提交数据？")){
 				$("#userForm").submit();
 			}
@@ -113,7 +130,8 @@ $(function(){
 			&& null != referer 
 			&& "" != referer
 			&& "null" != referer
-			&& referer.length > 4){
+			// && referer.length > 4
+		){
 		 window.location.href = referer;
 		}else{
 			history.back(-1);

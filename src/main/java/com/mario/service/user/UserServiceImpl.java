@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
@@ -205,7 +206,16 @@ public class UserServiceImpl implements UserService {
         }
         return  user;
     }
-
+@Test
+    public void test2(){
+    UserServiceImpl userService = new UserServiceImpl();
+    List<User> viper = userService.getUserList("viper", 3, 1, 5);
+    Iterator<User> iterator = viper.iterator();
+    while (iterator.hasNext())
+{
+        System.out.println(iterator.next());
+    }
+}
 //    @Test
 //    public void test(){
 //        User user = new User();

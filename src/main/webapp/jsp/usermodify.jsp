@@ -16,19 +16,22 @@
 					<font color="red"></font>
              </div>
 			 <div>
-                    <label >用户性别：</label>
-                    <select name="gender" id="gender">
-						<c:choose>
-							<c:when test="${user.gender == 1 }">
-								<option value="1" selected="selected">男</option>
-					    		<option value="2">女</option>
-							</c:when>
-							<c:otherwise>
-								<option value="1">男</option>
-					    		<option value="2" selected="selected">女</option>
-							</c:otherwise>
-						</c:choose>
-					 </select>
+<%--                    <select name="gender" id="gender">--%>
+<%--&lt;%&ndash;						<c:choose>&ndash;%&gt;--%>
+<%--&lt;%&ndash;							<c:when test="${user.gender == 1 }">&ndash;%&gt;--%>
+<%--&lt;%&ndash;								<option value="1" selected="selected">男</option>&ndash;%&gt;--%>
+<%--&lt;%&ndash;					    		<option value="2">女</option>&ndash;%&gt;--%>
+<%--&lt;%&ndash;							</c:when>&ndash;%&gt;--%>
+<%--&lt;%&ndash;							<c:otherwise>&ndash;%&gt;--%>
+<%--&lt;%&ndash;								<option value="1">男</option>&ndash;%&gt;--%>
+<%--&lt;%&ndash;					    		<option value="2" selected="selected">女</option>&ndash;%&gt;--%>
+<%--&lt;%&ndash;							</c:otherwise>&ndash;%&gt;--%>
+<%--&lt;%&ndash;						</c:choose>&ndash;%&gt;--%>
+<%--                        --%>
+<%--					 </select>--%>
+    <label for="gender">性别:</label>
+                 <input type="text" name="gender" id="gender" value="${user.gender }">
+                 <font color="red"></font>
              </div>
 			 <div>
                     <label for="data">出生日期：</label>
