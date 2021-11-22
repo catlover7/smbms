@@ -15,6 +15,15 @@ public class Provider {
     private Date creationDate; //创建时间
     private Integer modifyBy; //更新者
     private Date modifyDate;//更新时间
+    private Integer needNums;
+
+    public Integer getNeedNums() {
+        return needNums;
+    }
+
+    public void setNeedNums(Integer needNums) {
+        this.needNums = needNums;
+    }
 
     public Integer getId() {
         return id;

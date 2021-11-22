@@ -17,11 +17,11 @@ public class ProviderDaoImpl implements ProviderDao{
         int flag = 0;
         if(null != connection){
             String sql = "insert into smbms_provider (proCode,proName,proDesc," +
-                    "proContact,proPhone,proAddress,proFax,createdBy,creationDate) " +
-                    "values(?,?,?,?,?,?,?,?,?)";
+                    "proContact,proPhone,proAddress,proFax,createdBy,creationDate,needNums) " +
+                    "values(?,?,?,?,?,?,?,?,?,?)";
             Object[] params = {provider.getProCode(),provider.getProName(),provider.getProDesc(),
                     provider.getProContact(),provider.getProPhone(),provider.getProAddress(),
-                    provider.getProFax(),provider.getCreatedBy(),provider.getCreationDate()};
+                    provider.getProFax(),provider.getCreatedBy(),provider.getCreationDate(),provider.getNeedNums()};
             flag = BaseDao.execute(connection, sql, params,pstm);
             BaseDao.closeResource(null, pstm, null);
         }
@@ -58,6 +58,7 @@ public class ProviderDaoImpl implements ProviderDao{
                 _provider.setProAddress(rs.getString("proAddress"));
                 _provider.setProFax(rs.getInt("proFax"));
                 _provider.setCreationDate(rs.getTimestamp("creationDate"));
+                _provider.setNeedNums(rs.getInt("needNums"));
                 providerList.add(_provider);
             }
             BaseDao.closeResource(null, pstm, rs);
@@ -99,6 +100,7 @@ public class ProviderDaoImpl implements ProviderDao{
                 provider.setCreationDate(rs.getTimestamp("creationDate"));
                 provider.setModifyBy(rs.getInt("modifyBy"));
                 provider.setModifyDate(rs.getTimestamp("modifyDate"));
+                provider.setNeedNums(rs.getInt("needNums"));
             }
             BaseDao.closeResource(null, pstm, rs);
         }

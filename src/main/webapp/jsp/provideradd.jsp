@@ -38,7 +38,7 @@
                     <input type="text" name="proAddress" id="proAddress" value=""> 
                 </div>
                 <div>
-                    <label for="proAddress">传真：</label>
+                    <label for="proAddress">招聘个数：</label>
                     <input type="text" name="proFax" id="proFax" value="">
                 </div>
                 <div>
